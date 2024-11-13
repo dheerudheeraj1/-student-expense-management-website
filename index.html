@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Expense Manager Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-wallet"></i>
+            <h2>ExpenseTracker</h2>
+        </div>
+        <ul class="nav-links">
+            <li class="active"><a href="#dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="#expenses"><i class="fas fa-receipt"></i>Expenses</a></li>
+            <li><a href="#analytics"><i class="fas fa-chart-line"></i>Analytics</a></li>
+            <li><a href="#settings"><i class="fas fa-cog"></i>Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="total-budget">
+                <span>Monthly Budget</span>
+                <h3>$1,000.00</h3>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search expenses...">
+            </div>
+            <div class="user-menu">
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Felix" alt="Profile" class="avatar">
+                    <span>John Doe</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Quick Stats Cards -->
+            <div class="stats-container">
+                <div class="stat-card primary">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Total Spent</h3>
+                        <p>$750.50</p>
+                        <span class="trend positive">+2.5% <i class="fas fa-arrow-up"></i></span>
+                    </div>
+                </div>
+                <div class="stat-card success">
+                    <div class="stat-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Savings</h3>
+                        <p>$249.50</p>
+                        <span class="trend positive">+5.2% <i class="fas fa-arrow-up"></i></span>
+                    </div>
+                </div>
+                <div class="stat-card warning">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Budget Left</h3>
+                        <p>$180.20</p>
+                        <span class="trend negative">-1.4% <i class="fas fa-arrow-down"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expense Form Card -->
+            <div class="card expense-form-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-plus-circle"></i> Add New Expense</h2>
+                </div>
+                <form class="expense-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-tag"></i> Title</label>
+                        <input type="text" placeholder="Expense title" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-dollar-sign"></i> Amount</label>
+                            <input type="number" placeholder="0.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-folder"></i> Category</label>
+                            <select required>
+                                <option value="">Select Category</option>
+                                <option value="food">Food & Dining</option>
+                                <option value="education">Education</option>
+                                <option value="transport">Transportation</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-note-sticky"></i> Notes</label>
+                        <textarea placeholder="Add notes (optional)"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-plus"></i> Add Expense
+                    </button>
+                </form>
+            </div>
+
+            <!-- Recent Expenses Table -->
+            <div class="card expenses-table-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-history"></i> Recent Expenses</h2>
+                    <div class="card-actions">
+                        <select class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="food">Food & Dining</option>
+                            <option value="education">Education</option>
+                            <option value="transport">Transportation</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="others">Others</option>
+                        </select>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="expenses-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="expense-title">
+                                        <i class="fas fa-utensils category-icon food"></i>
+                                        <span>Lunch at Cafe</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge food">Food</span></td>
+                                <td>$12.50</td>
+                                <td>2024-01-15</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="expense-title">
+                                        <i class="fas fa-bus category-icon transport"></i>
+                                        <span>Bus Ticket</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge transport">Transport</span></td>
+                                <td>$5.00</td>
+                                <td>2024-01-14</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Budget Progress -->
+            <div class="card budget-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-chart-pie"></i> Budget Overview</h2>
+                    <select class="period-select">
+                        <option value="weekly">This Week</option>
+                        <option value="monthly" selected>This Month</option>
+                        <option value="yearly">This Year</option>
+                    </select>
+                </div>
+                <div class="budget-categories">
+                    <div class="budget-category">
+                        <div class="category-header">
+                            <span>Food & Dining</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%; background-color: #FF6B6B;"></div>
+                        </div>
+                        <div class="category-footer">
+                            <span>$300 / $400</span>
+                        </div>
+                    </div>
+                    <div class="budget-category">
+                        <div class="category-header">
+                            <span>Transportation</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 45%; background-color: #4ECDC4;"></div>
+                        </div>
+                        <div class="category-footer">
+                            <span>$90 / $200</span>
+                        </div>
+                    </div>
+                    <div class="budget-category">
+                        <div class="category-header">
+                            <span>Entertainment</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 30%; background-color: #45B7D1;"></div>
+                        </div>
+                        <div class="category-footer">
+                            <span>$45 / $150</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="btn-text">Mark all as read</button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <i class="fas fa-exclamation-circle warning"></i>
+                <div class="notification-content">
+                    <p>You've exceeded your food budget!</p>
+                    <span class="notification-time">2 hours ago</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <i class="fas fa-check-circle success"></i>
+                <div class="notification-content">
+                    <p>Monthly report is ready</p>
+                    <span class="notification-time">1 day ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
